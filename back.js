@@ -1,4 +1,4 @@
-importScripts("https://woopy.alexiis.fr/websites.js")
+
 chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de tab, ou qu'on va sur un nouveau
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => { //On récupère l'URL
         const tabId = activeInfo.tabId;
@@ -41,7 +41,7 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
 
             if(checkurl(cleared)) {
                 chrome.tabs.update(tabId ,{url:checkurl(cleared) + data});
-                
+
             }
         }  else if(url.startsWith("www.")) { //Si elle commence par www.
             var domain = url.substring(4); //On enlève 4 caractères
@@ -55,8 +55,8 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
             }
         } else { //Sinon
             return console.log(url);
-        }   
-        
+        }
+
         function checkurl(url){
             is = false;
 
