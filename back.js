@@ -70,7 +70,7 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
         }
 
         function checkurl(url){
-            is = false;
+            let is = false;
 
             for (let u of cache) {
                 if (u.link == url) is = u.url;
