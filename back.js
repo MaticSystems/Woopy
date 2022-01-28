@@ -1,9 +1,23 @@
+let cache = [];
+
+const fetchLinks = () => {
+    fetch("https://woopy.alexiis.fr/websites.json").then(res => {
+        res.json().then(j => {
+            cache = j;
+        })
+    }).catch(err => {
+        console.log("Une erreur est survenue.", err);
+    })
+}
+
+fetchLinks();
+setInterval(fetchLinks, 60*60*1000)
+
 chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de tab, ou qu'on va sur un nouveau
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => { //On récupère l'URL
-        const tabId = activeInfo.tabId;
-        var url = tabs[0].url; //On la stocke dans la variable "URL"
-
-        const data_array = [];
+        const {tabId} = activeInfo;
+        if(!tabs[0]) return;
+        const {url} = tabs[0]; //On la stocke dans la variable "URL"
 
         if(url.startsWith("https://www.")) { //Si elle commence par https://www.
             var domain = url.substring(12); //On enlève 12 caractères
@@ -40,7 +54,7 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
 
             if(checkurl(cleared)) {
                 chrome.tabs.update(tabId ,{url:checkurl(cleared) + data});
-                
+
             }
         }  else if(url.startsWith("www.")) { //Si elle commence par www.
             var domain = url.substring(4); //On enlève 4 caractères
@@ -54,10 +68,14 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
             }
         } else { //Sinon
             return console.log(url);
-        }   
-        
+        }
+
         function checkurl(url){
-            is = false;
+            let is = false;
+
+            for (let u of cache) {
+                if (u.link == url) return u.redirect;
+            }
 
             if(url === "free.woopy") {is = "http://elaxis.html-5.me/woopy";}
             if(url === "koro.baka") {is = "https://krbk.dev";}
@@ -65,7 +83,6 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
             if(url === "alexii.s") {is = "https://alexiis.fr";}
             if(url === "goog.le") {is = "https://google.com"}
             if(url === "dev.woopy") {is = "http://elaxis.html-5.me/woopy/devlogs"}
-            if(url === "face.book") {is = "https://facebook.com/"}
             if(url === "d.is" || url === "d.i") {is="https://discord.gg/"}
             if(url === "dream.art") {is="https://app.wombo.art/"}
 
