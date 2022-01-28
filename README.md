@@ -7,6 +7,10 @@ Woopy makes it faster and easier for internet users to access the websites they 
 ---
 ## Installation
 
+Production version:
+- Install the extension by going [on the chrome webstore](https://chrome.google.com/webstore/detail/woopy/ljkndohpgfnpdbocmfhlgbhhgdbnpmih)
+
+Dev version:
 - Clone the repo using `git clone https://github.com/Alexis-Elaxis/Woopy.git` 
 - Open chrome, and go to `chrome://extensions`
 - Click on "Enable developer mode" in top right corner.
