@@ -1,8 +1,22 @@
+let cache = [];
+
+const fetchLinks = () => {
+    fetch("https://woopy.alexiis.fr/websites.json").then(res => {
+        res.json().then(j => {
+            cache = j;
+        })
+    }).catch(err => {
+        console.log("Une erreur est survenue.", err);
+    })
+}
+
+fetchLinks();
+setInterval(fetchLinks, 60*60*1000)
 
 chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de tab, ou qu'on va sur un nouveau
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => { //On récupère l'URL
-        const {tabId} = activeInfo;
-        var {url} = tabs[0]; //On la stocke dans la variable "URL"
+        const tabId = activeInfo.tabId;
+        var url = tabs[0].url; //On la stocke dans la variable "URL"
 
         if(url.startsWith("https://www.")) { //Si elle commence par https://www.
             var domain = url.substring(12); //On enlève 12 caractères
@@ -43,6 +57,7 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
             }
         }  else if(url.startsWith("www.")) { //Si elle commence par www.
             var domain = url.substring(4); //On enlève 4 caractères
+            var cleared = domain.split('/')[0];
             var cleared = domain.split('/')[0];
             var count = cleared.length;
             var data = domain.substring(count);
