@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+html {
+    width: 420px;
+}
+
+body {
+    background: #23272A;
+    color: white;
+}
+
+* {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.maintitle {
+    text-decoration: underline;
+    transition: .8s;
+}
+
+.maintitle:hover {
+    opacity: 65%;
+    transition: .8s;
+}
+
+img:hover {
+    transition: .8s;
+    opacity: 65%;
+}
+
+img {
+    transition: .8s;
+}
+
+ul {
+    max-height: 70px;
+    overflow-y: scroll;
+}
