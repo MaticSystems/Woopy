@@ -15,8 +15,9 @@ setInterval(fetchLinks, 60*60*1000)
 
 chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de tab, ou qu'on va sur un nouveau
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => { //On récupère l'URL
-        const tabId = activeInfo.tabId;
-        var url = tabs[0].url; //On la stocke dans la variable "URL"
+        const {tabId} = activeInfo;
+        if(!tabs[0]) return;
+        const {url} = tabs[0]; //On la stocke dans la variable "URL"
 
         if(url.startsWith("https://www.")) { //Si elle commence par https://www.
             var domain = url.substring(12); //On enlève 12 caractères
@@ -73,7 +74,7 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
             let is = false;
 
             for (let u of cache) {
-                if (u.link == url) is = u.url;
+                if (u.link == url) return u.redirect;
             }
 
             if(url === "free.woopy") {is = "http://elaxis.html-5.me/woopy";}
