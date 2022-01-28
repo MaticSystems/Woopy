@@ -12,3 +12,11 @@ Woopy makes it faster and easier for internet users to access the sites they wan
 - Now, click on "Load unpacked extension".
 - Select the Woopy folder.
 - Woopy should now be active.
+
+---
+## Bugs or feature requests
+If you find bugs, or if you want to request features, please go to [the issues tab](https://github.com/Alexis-Elaxis/Woopy/issues) and create a new issue. A contributor will review it.
+
+---
+## Pull requests
+We are welcome to pull requests! If you make one, please include what you added in the title, and make meaningful commit messages. A pull request titled "small changes" will not be reviewed.
