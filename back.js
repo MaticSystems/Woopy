@@ -78,7 +78,6 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
             if(url === "alexii.s") {is = "https://alexiis.fr";}
             if(url === "goog.le") {is = "https://google.com"}
             if(url === "dev.woopy") {is = "http://elaxis.html-5.me/woopy/devlogs"}
-            if(url === "face.book") {is = "https://facebook.com/"}
             if(url === "d.is" || url === "d.i") {is="https://discord.gg/"}
             if(url === "dream.art") {is="https://app.wombo.art/"}
 
