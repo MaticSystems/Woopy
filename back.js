@@ -1,4 +1,3 @@
-importScripts("https://woopy.alexiis.fr/websites.js")
 chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de tab, ou qu'on va sur un nouveau
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => { //On récupère l'URL
         const tabId = activeInfo.tabId;
