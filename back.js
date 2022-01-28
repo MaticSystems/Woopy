@@ -74,17 +74,8 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
             let is = false;
 
             for (let u of cache) {
-                if (u.link == url) return u.redirect;
+                if (u.link == url) is = u.redirect;
             }
-
-            if(url === "free.woopy") {is = "http://elaxis.html-5.me/woopy";}
-            if(url === "koro.baka") {is = "https://krbk.dev";}
-            if(url === "neto.centre") {is = "https://netocentre.fr";}
-            if(url === "alexii.s") {is = "https://alexiis.fr";}
-            if(url === "goog.le") {is = "https://google.com"}
-            if(url === "dev.woopy") {is = "http://elaxis.html-5.me/woopy/devlogs"}
-            if(url === "d.is" || url === "d.i") {is="https://discord.gg/"}
-            if(url === "dream.art") {is="https://app.wombo.art/"}
 
             return is;
         }
