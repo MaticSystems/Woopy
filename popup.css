@@ -1,39 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-html {
+body {
+    background: #2B2B2B;
+    color: white;
+
+    margin: auto 0;
     width: 420px;
 }
 
-body {
-    background: #23272A;
-    color: white;
-}
-
 * {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
-.maintitle {
-    text-decoration: underline;
-    transition: .8s;
+.top {
+    background: #3F3F3F;
+    width: 100%;
 }
 
-.maintitle:hover {
-    opacity: 65%;
-    transition: .8s;
+.top img {
+    vertical-align: middle;
 }
 
-img:hover {
-    transition: .8s;
-    opacity: 65%;
+.top h1 {
+    font-size: 150%;
+    display: inline-block;
 }
 
-img {
-    transition: .8s;
+p {
+    width: 420px;
+    margin-left: 10px;
+    margin-right: 5px;
+
+    font-size: 150%;
 }
 
-ul {
-    max-height: 70px;
-    overflow-y: scroll;
+b {
+    width: 420px;
+    margin-left: 10px;
+    margin-right: 5px;
+
+    font-size: 150%;
+}
+
+.bottom {
+    margin-top: 5%;
+    width: 100%;
+    background: #2B2B2B;
+}
+
+a img {
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 5%;
 }
