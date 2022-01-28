@@ -72,6 +72,10 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //Dès qu'on change de 
         function checkurl(url){
             is = false;
 
+            for (let u of cache) {
+                if (u.link == url) is = u.url;
+            }
+
             if(url === "free.woopy") {is = "http://elaxis.html-5.me/woopy";}
             if(url === "koro.baka") {is = "https://krbk.dev";}
             if(url === "neto.centre") {is = "https://netocentre.fr";}
