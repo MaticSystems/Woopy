@@ -52,5 +52,17 @@ a img {
     display: block;
     width: 60%;
     margin: auto;
+}
+
+a {
+    color: white;
+    text-align: center;
+    font-size: 150%;
+
     margin-bottom: 5%;
+}
+
+.link {
+    display: block;
+    margin: auto;
 }

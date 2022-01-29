@@ -4,6 +4,7 @@ const fetchLinks = () => {
     fetch("https://woopy.alexiis.fr/websites.json").then(res => {
         res.json().then(j => {
             cache = j;
+            console.log("Links are been fetched !")
         })
     }).catch(err => {
         console.log("Une erreur est survenue.", err);
@@ -24,6 +25,12 @@ function checkurl(url){
 function getURL(domain, cleared) {
     var count = cleared.length;
     var data = domain.substring(count);
+
+    if(domain.startsWith("d.s")){
+        if(data == "/woopy") {
+            return "https://discord.gg/bD5uzpBCCt";
+        }
+    }
 
     if(checkurl(cleared)) {
         return checkurl(cleared) + data;
