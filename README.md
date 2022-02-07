@@ -2,6 +2,8 @@
 
 Woopy makes it faster and easier for internet users to access the websites they want.
 
+Join Woopy [discord server](https://discord.gg/bD5uzpBCCt) for get the news to stay abreast of the latest news 
+
 [![VersionBadge](https://img.shields.io/chrome-web-store/v/ljkndohpgfnpdbocmfhlgbhhgdbnpmih) ![DownloadsBadge](https://img.shields.io/chrome-web-store/users/ljkndohpgfnpdbocmfhlgbhhgdbnpmih) ![PermissionsBadge](https://img.shields.io/github/manifest-json/permissions/Alexis-Elaxis/Woopy)](https://chrome.google.com/webstore/detail/woopy/ljkndohpgfnpdbocmfhlgbhhgdbnpmih)
 [![LastCommitBadge](https://img.shields.io/github/last-commit/Alexis-Elaxis/Woopy)](https://github.com/Alexis-Elaxis/Woopy)
 ---
