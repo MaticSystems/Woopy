@@ -1,14 +1,13 @@
 {
   "name": "Woopy",
   "description": "Allow to accessing to your favorites websites more faster.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "manifest_version": 3,
   "background": {
     "service_worker": "back.js"
   },
   "content_scripts": [
     {
-      "js": ["jquery.js"],
       "matches": ["*://*/*"]
     }
   ],
