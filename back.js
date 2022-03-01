@@ -19,7 +19,7 @@ const fetchRewrite = () => {
             console.log("Rewriters are been fetched !")
         })
     }).catch(err => {
-        console.log("Error:, err);
+        console.log("Error:", err);
     })
 }
 
