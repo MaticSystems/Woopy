@@ -1,4 +1,5 @@
 let cache = [];
+let cacheRewrite = [];
 
 const fetchLinks = () => {
     fetch("https://woopy.alexiis.fr/websites.json").then(res => {
@@ -11,14 +12,37 @@ const fetchLinks = () => {
     })
 }
 
-function checkurl(url){
+const fetchRewrite = () => {
+    fetch("https://woopy.alexiis.fr/rewrite.json").then(res => {
+        res.json().then(j => {
+            cacheRewrite = j;
+            console.log("Rewriters are been fetched !")
+        })
+    }).catch(err => {
+        console.log("Error:, err);
+    })
+}
+
+function checkurl(link){
     let is = false;
 
     for (let u of cache) {
-        if (u.link == url) is = u.redirect;
+        if (u.link == link) is = u.redirect;
     }
 
     return is;
+}
+    
+function checkRewrite(link, url){
+    let is = false;
+    
+    for (let u of cacheRewrite) {
+        if(u.link == link) {
+            if(u.url == url) {
+                is = u.redirect;
+            }
+        }
+    }
 }
 
 
@@ -26,16 +50,13 @@ function getURL(domain, cleared) {
     var count = cleared.length;
     var data = domain.substring(count);
 
-    if(domain.startsWith("d.s")){
-        if(data == "/woopy") {
-            return "https://discord.gg/bD5uzpBCCt";
-        }
-    }
-
-    if(checkurl(cleared)) {
+    if(checkRewrite(cleared, data)) {
+        return checkurl(cleared) + checkRewrite(cleared, data);
+    } else if(checkurl(cleared)) {
         return checkurl(cleared) + data;
+    } else {
+        return false;   
     }
-    return false;
 }
 
 fetchLinks();
