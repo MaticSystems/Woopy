@@ -1,5 +1,4 @@
 let cache = [];
-let cacheRewrite = [];
 
 const fetchLinks = () => {
     fetch("https://woopy.alexiis.fr/websites.json").then(res => {
@@ -8,18 +7,7 @@ const fetchLinks = () => {
             console.log("Links are been fetched !")
         })
     }).catch(err => {
-        console.log("Une erreur est survenue.", err);
-    })
-}
-
-const fetchRewrite = () => {
-    fetch("https://woopy.alexiis.fr/rewrite.json").then(res => {
-        res.json().then(a => {
-            cacheRewrite = a;
-            console.log("Rewriters are been fetched !")
-        })
-    }).catch(err => {
-        console.log("Error:", err);
+        console.log("Error :", err);
     })
 }
 
@@ -32,28 +20,12 @@ function checkurl(link){
 
     return is;
 }
-    
-function checkRewrite(link, url){
-    let is = false;
-    
-    for (let u of cacheRewrite) {
-        if(u.link == link) {
-            if(u.url == url) {
-                is = u.redirect;
-            }
-        }
-    }
-}
-
 
 function getURL(domain, cleared) {
     var count = cleared.length;
     var data = domain.substring(count);
 
-    if(checkRewrite(cleared, data)) {
-        console.log(checkRewrite(cleared, data));
-        return checkurl(cleared) + checkRewrite(cleared, data);
-    } else if(checkurl(cleared)) {
+    if(checkurl(cleared)) {
         return checkurl(cleared) + data;
     } else {
         return false;   
@@ -61,9 +33,7 @@ function getURL(domain, cleared) {
 }
 
 fetchLinks();
-fetchRewrite();
 setInterval(fetchLinks, 60*60*1000)
-setInterval(fetchRewrite, 60*60*1000)
 
 chrome.tabs.onUpdated.addListener(function(activeInfo) { //When tab is updated
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => { //We get the current URL
