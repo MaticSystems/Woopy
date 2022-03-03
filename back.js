@@ -41,7 +41,7 @@ function getURL(domain, cleared) {
 }
 
 fetchLinks();
-setInterval(fetchLinks, 60*60*1000)
+setInterval(fetchLinks, 60*60*1000);
 
 chrome.tabs.onUpdated.addListener(function(activeInfo) { //When tab is updated
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => { //We get the current URL
