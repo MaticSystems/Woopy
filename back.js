@@ -1,7 +1,5 @@
 let cache = [];
 
-console.log(document.getElementById('list'));
-
 const fetchLinks = () => {
     fetch("https://woopy.alexiis.fr/websites.json").then(res => {
         res.json().then(j => {
