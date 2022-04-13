@@ -4,10 +4,10 @@ const fetchLinks = () => {
     fetch("https://woopy.alexiis.fr/websites.json").then(res => {
         res.json().then(j => {
             cache = j;
-            console.log("Links are been fetched !")
+            console.log("Links have been fetched and set to cache.");
         })
     }).catch(err => {
-        console.log("Une erreur est survenue.", err);
+        console.error("An error occured:", err);
     })
 }
 
