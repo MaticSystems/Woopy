@@ -47,41 +47,7 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //When tab is updated
         if(!tabs[0]) return;
         const {url} = tabs[0];
 
-        if(url.startsWith("https://www.")) { //If starts by https://www.
-            var domain = url.substring(12); //Remove 12 characters
-            var cleared = domain.split('/')[0];
-
-            if(checkurl(cleared)) {
-                chrome.tabs.update(tabId ,{url:getURL(domain, cleared)});
-            }
-        } if(url.startsWith("https://")) { //Same
-            var domain = url.substring(8); 
-            var cleared = domain.split('/')[0];
-
-            if(checkurl(cleared)) {
-                chrome.tabs.update(tabId ,{url:getURL(domain, cleared)});
-            }
-        } else if(url.startsWith("http://www.")) { 
-            var domain = url.substring(11); 
-            var cleared = domain.split('/')[0];
-
-            if(checkurl(cleared)) {
-                chrome.tabs.update(tabId ,{url:getURL(domain, cleared)});
-            }
-        } else if(url.startsWith("http://")) { 
-            var domain = url.substring(7); 
-            var cleared = domain.split('/')[0];
-
-            if(checkurl(cleared)) {
-                chrome.tabs.update(tabId ,{url:getURL(domain, cleared)});
-            }
-        }  else if(url.startsWith("www.")) { 
-            var domain = url.substring(4); 
-            var cleared = domain.split('/')[0];
-
-            if(checkurl(cleared)) {
-                chrome.tabs.update(tabId ,{url:getURL(domain, cleared)});
-            }
-        } 
+        let domain = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
+        let path = domain.split("/")[0];chrome.tabs.update(tabId, {url: getURL(domain, path)});
     });
 });
