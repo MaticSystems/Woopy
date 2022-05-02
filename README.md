@@ -2,7 +2,7 @@
 
 Woopy makes it faster and easier for internet users to access the websites they want.
 
-Join Woopy [discord server](https://discord.gg/bD5uzpBCCt) for get the news to stay abreast of the latest news 
+Join Woopy [discord server](https://discord.gg/QzSQgsn) for get the news to stay abreast of the latest news 
 
 [![VersionBadge](https://img.shields.io/chrome-web-store/v/ljkndohpgfnpdbocmfhlgbhhgdbnpmih) ![DownloadsBadge](https://img.shields.io/chrome-web-store/users/ljkndohpgfnpdbocmfhlgbhhgdbnpmih) ![PermissionsBadge](https://img.shields.io/github/manifest-json/permissions/Alexis-Elaxis/Woopy)](https://chrome.google.com/webstore/detail/woopy/ljkndohpgfnpdbocmfhlgbhhgdbnpmih)
 [![LastCommitBadge](https://img.shields.io/github/last-commit/Alexis-Elaxis/Woopy)](https://github.com/Alexis-Elaxis/Woopy)
@@ -23,6 +23,10 @@ Dev version:
 ---
 ## Bugs or feature requests
 If you find bugs, or if you want to request features, please go to [the issues tab](https://github.com/Alexis-Elaxis/Woopy/issues) and create a new issue. A contributor will review it.
+
+---
+## Suggestion
+If you have suggestion, please go to [the issues tab](https://github.com/Alexis-Elaxis/Woopy/issues) and create a new issue or join the [discord server](https://discord.gg/QzSQgsn). A contributor will review it.
 
 ---
 ## Pull requests
