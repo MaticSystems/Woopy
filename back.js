@@ -28,7 +28,7 @@ function getURL(domain, cleared) {
 
     if(domain.startsWith("d.s")){
         if(data == "/woopy") {
-            return "https://discord.gg/bD5uzpBCCt";
+            return "https://discord.gg/QzSQgsn";
         }
     }
 
