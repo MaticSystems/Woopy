@@ -87,5 +87,3 @@ chrome.runtime.onInstalled.addListener(function(installation) {
         
     }
 })
-
-console.log(navigator.language)
