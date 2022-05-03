@@ -38,6 +38,18 @@ function getURL(domain, cleared) {
     return false;
 }
 
+function getinURL(url) {
+	url = url.substring(url.indexOf("?q=") + 3);
+  url = url.split("&oq=")[0];
+  
+  path_int = url.split("/")[0];
+  data_int = url.substring(url.indexOf("/") + 1);
+  
+  rep = {path:path_int,data:data_int};
+  
+  return rep;
+}
+
 fetchLinks();
 setInterval(fetchLinks, 60*60*1000);
 
@@ -48,6 +60,13 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //When tab is updated
         const {url} = tabs[0];
 
         let domain = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
-        let path = domain.split("/")[0];chrome.tabs.update(tabId, {url: getURL(domain, path)});
+        let path = domain.split("/")[0];
+        
+        if(getURL(domain, path)) {
+            chrome.tabs.update(tabId, {url: getURL(domain, path)});
+        }else{
+            chrome.tabs.update(tabId, {url: getURL(getinURL(url).path, getinURL(url).data)});
+        }
+        
     });
 });
