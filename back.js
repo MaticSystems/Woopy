@@ -70,3 +70,22 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //When tab is updated
         
     });
 });
+
+chrome.runtime.onInstalled.addListener(function(installation) {
+    if(installation.reason === "install"){
+        if(navigator.language === "fr-FR") {
+            chrome.tabs.create({url: 'internal/fr/install.html'});
+        } else {
+            chrome.tabs.create({url: 'internal/en/install.html'});
+        }
+    } else if(installation.reason === "update"){
+        if(navigator.language === "fr-FR") {
+            chrome.tabs.create({url: 'internal/fr/update.html'});
+        } else {
+            chrome.tabs.create({url: 'internal/en/update.html'});
+        }
+        
+    }
+})
+
+console.log(navigator.language)
