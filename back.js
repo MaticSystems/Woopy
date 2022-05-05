@@ -1,9 +1,9 @@
-let cache = [];
+let woopy_cache = [];
 
 const fetchLinks = () => {
     fetch("https://woopy.alexiis.fr/websites.json").then(res => {
         res.json().then(j => {
-            cache = j;
+            woopy_cache = j;
             console.log("Links have been fetched and set to cache.");
         })
     }).catch(err => {
@@ -12,13 +12,13 @@ const fetchLinks = () => {
 }
 
 function checkurl(url){
-    let is = false;
+    let is_in_cache = false;
 
-    for (let u of cache) {
-        if (u.link == url) is = u.redirect;
+    for (let u of woopy_cache) {
+        if (u.link == url) is_in_cache = u.redirect;
     }
 
-    return is;
+    return is_in_cache;
 }
 
 
@@ -39,15 +39,7 @@ function getURL(domain, cleared) {
 }
 
 function getinURL(url) {
-	url = url.substring(url.indexOf("?q=") + 3);
-  url = url.split("&oq=")[0];
-  
-  path_int = url.split("/")[0];
-  data_int = url.substring(url.indexOf("/") + 1);
-  
-  rep = {path:path_int,data:data_int};
-  
-  return rep;
+    return {path:url.substring(url.indexOf("?q=") + 3).split("&oq=")[0].split("/")[0],data:url.substring(url.indexOf("?q=") + 3).split("&oq=")[0]}.substring(url.indexOf("/") + 1);
 }
 
 fetchLinks();
@@ -80,10 +72,11 @@ chrome.runtime.onInstalled.addListener(function(installation) {
         }
     } else if(installation.reason === "update"){
         if(navigator.language === "fr-FR") {
-            chrome.tabs.create({url: 'internal/fr/update.html'});
+            //chrome.tabs.create({url: 'internal/fr/update.html'});
         } else {
             chrome.tabs.create({url: 'internal/en/update.html'});
         }
         
     }
 })
+

@@ -16,7 +16,7 @@
     "https://woopy.alexiis.fr/",
     "*://*/*"
   ],
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "notifications"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
