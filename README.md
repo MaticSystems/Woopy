@@ -23,9 +23,9 @@ Dev version:
 - Woopy should now be active.
 
 ---
-##Todo
+## Todo
 
-[] - Skip URL shorteners (type adfly) 
+- [ ] - Skip URL shorteners (type adfly) 
 
 ---
 ## Bugs or feature requests
