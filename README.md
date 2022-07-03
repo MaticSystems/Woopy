@@ -23,6 +23,11 @@ Dev version:
 - Woopy should now be active.
 
 ---
+##Todo
+
+[] - Skip URL shorteners (type adfly) 
+
+---
 ## Bugs or feature requests
 If you find bugs, or if you want to request features, please go to [the issues tab](https://github.com/Alexis-Elaxis/Woopy/issues) and create a new issue. A contributor will review it.
 
