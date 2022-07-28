@@ -39,7 +39,7 @@ function getURL(domain, cleared) {
 }
 
 function getinURL(url) {
-    return {path:url.substring(url.indexOf("?q=") + 3).split("&oq=")[0].split("/")[0],data:url.substring(url.indexOf("?q=") + 3).split("&oq=")[0]}.substring(url.indexOf("/") + 1);
+    return {path:url.substring(url.indexOf("?q=") + 3).split("&")[0].split("/")[0],data:url.substring(url.indexOf("?q=") + 3).split("&")[0]}.substring(url.indexOf("/") + 1);
 }
 
 fetchLinks();
@@ -57,6 +57,7 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //When tab is updated
         if(getURL(domain, path)) {
             chrome.tabs.update(tabId, {url: getURL(domain, path)});
         }else{
+            console.log(getinURL(url));
             chrome.tabs.update(tabId, {url: getURL(getinURL(url).path, getinURL(url).data)});
         }
         
