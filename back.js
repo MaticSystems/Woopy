@@ -53,6 +53,9 @@ chrome.tabs.onUpdated.addListener(function(activeInfo) { //When tab is updated
 
         let domain = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
         let path = domain.split("/")[0];
+        if (domain === "adfoc.us") {
+            chrome.tabs.update(tabId, {url: eval("click_url")});        
+        }
         
         if(getURL(domain, path)) {
             chrome.tabs.update(tabId, {url: getURL(domain, path)});
