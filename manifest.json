@@ -1,7 +1,7 @@
 {
   "name": "Woopy",
   "description": "The old time is over.",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "manifest_version": 3,
   "background": {
     "service_worker": "back.js"
@@ -22,16 +22,12 @@
     "default_icon": {
       "32": "/icons/icon_32.png",
       "64": "/icons/icon_64.png",
-      "128": "/icons/icon_128.png",
-      "356": "/icons/icon_356.png",
-      "500": "/icons/icon_500.png"
+      "128": "/icons/icon_128.png"
     }
   },
   "icons": {
     "32": "/icons/icon_32.png",
     "64": "/icons/icon_64.png",
-    "128": "/icons/icon_128.png",
-    "356": "/icons/icon_356.png",
-    "500": "/icons/icon_500.png"
+    "128": "/icons/icon_128.png"
   }
 }
