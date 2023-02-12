@@ -26,6 +26,37 @@ function getURL(domain, cleared) {
     var count = cleared.length;
     var data = domain.substring(count);
 
+    /** Custom support for adfoc.us */
+    if (domain.startsWith("adfoc.us")) {
+        if (data !== "/") {
+            function redirect () {
+                var el = document.querySelectorAll("script")[3];
+                var arr = el.innerHTML.replaceAll("\n            ", "").split("var ").slice(1);
+                var url = arr[3].split("= ")[1].replaceAll("\"", "").replace(";", "");
+
+                window.location.replace(url);
+                return true;
+            }
+
+            chrome.tabs.query({
+                currentWindow: true,
+                active: true
+            }, (tabs) => {
+                chrome.scripting.executeScript({
+                    target: { tabId: tabs[0].id },
+                    func: redirect,
+                }, (data) => {
+                    var { result } = data[0];
+                    if (!result) {
+                        console.error("An error occured when trying to find the non-advertised URL.");
+                    }
+                });
+            });
+
+            return false;
+        }
+    }
+    
     if(domain.startsWith("d.s")){
         if(data == "/woopy") {
             return "https://discord.gg/QzSQgsn";
